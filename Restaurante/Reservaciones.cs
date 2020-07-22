@@ -22,10 +22,20 @@ namespace Restaurante
 
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+
+        private void Reservaciones_Resize(object sender, EventArgs e)
         {
-            Pedir_Reservacion reservacion = new Pedir_Reservacion();
-            reservacion.Show();
+            panel4.Width = (panel3.Width) / 4;
+            panel9.Width = (panel3.Width) / 4;
+            panel5.Width = (panel3.Width) / 4;
+            panel2.Width = (panel3.Width) / 4;
+            panel11.Width = ((panel3.Width) / 4)*3;
+            panel12.Width = (panel3.Width) / 4;
+        }
+
+        private void Reservaciones_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

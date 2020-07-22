@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Restaurante
 {
-    public partial class Pedir_Reservacion : Form
+    public partial class Empleados : Form
     {
-        public Pedir_Reservacion()
+        public Empleados()
         {
             InitializeComponent();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Nuevo_Socio nuevo_Socio = new Nuevo_Socio();
+            nuevo_Socio.Show();
         }
     }
 }

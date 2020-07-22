@@ -24,7 +24,7 @@ namespace Restaurante
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            Nueva_Orden nueva = new Nueva_Orden();
+            Nuevo_Socio nueva = new Nuevo_Socio();
             nueva.Show();
         }
     }
