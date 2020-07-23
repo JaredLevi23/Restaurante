@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,18 +20,29 @@ namespace Restaurante
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 string nombre, apellido, puesto;
                 nombre = textBox1.Text;
                 apellido = textBox2.Text;
                 puesto = comboBox1.SelectedItem.ToString();
 
                 JSON.Trabajador trabajador = new JSON.Trabajador();
-                trabajador.PostTrabajador(nombre, apellido, puesto);
-                MessageBox.Show("BIENVENIDO A BORDO ;) ");
+                JSON.Api api = new JSON.Api();
+                JSON.Curl curl = new JSON.Curl();
+
+                trabajador.Nombre = nombre;
+                trabajador.Apellido = apellido;
+                trabajador.Puesto = puesto;
+
+                curl.verbo = Method.POST;
+                curl.json = trabajador;
+
+                MessageBox.Show(api.apicall(curl));
                 this.Close();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("ALGO SALIO MUY MUY MUUUY MAAAL :(");
             }
         }

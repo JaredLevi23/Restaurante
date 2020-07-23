@@ -16,7 +16,7 @@ namespace Restaurante
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu_Restaurante());
+            Application.Run(new Nuevo_Socio());
         }
     }
 }

@@ -6,63 +6,51 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using RestSharp;
 
 namespace Restaurante.JSON
 {
-    class Trabajador
+    class Trabajadores
     {
 
-        string url = "http://192.168.0.7:8084/esp32-api/public/api/trabajador";
-        
-        public string PostTrabajador(string nom,string ape,string pue)
+
+    }
+
+    class Api
+    {
+        public string apicall(Curl datos)
         {
-            string resultado = "";
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "POST";
-            request.ContentType = "application/json;charset-UTF-8";
+            var cliente = new RestClient(datos.url);
+            var request = new RestRequest(datos.verbo);
 
-            using (var oSW = new StreamWriter(request.GetRequestStream()))
-            {
-                string json = "{\"Nombre\":\""+nom+"\",\"Apellido\":\""+ape+"\",\"Puesto\":\""+pue+"\"}";
-                oSW.Write(json);
-                oSW.Flush();
-                oSW.Close();
-
-            }
-            WebResponse response = request.GetResponse();
-
-            using (var oSR = new StreamReader(response.GetResponseStream())) {
-                resultado = oSR.ReadToEnd().Trim();
-            }
-
-                return resultado;
-        }
-
-
-        public string GetTrabajador(string id)
-        {
-            string resultado = "";
-            int ide = Int32.Parse(id);
-            WebRequest request = WebRequest.Create(url);
-            request.Method = "GET";
-            request.ContentType = "application/json;charset-UTF-8";
-
-            using (var oSW = new StreamWriter(request.GetRequestStream()))
-            {
-                string json = "{\"idTrabajador\":\"" + ide + "\"}";
-                oSW.Write(json);
-                oSW.Flush();
-                oSW.Close();
-
-            }
-            WebResponse response = request.GetResponse();
-
-            using (var oSR = new StreamReader(response.GetResponseStream()))
-            {
-                resultado = oSR.ReadToEnd().Trim();
-            }
-
-            return resultado;
+            request.AddHeader("Content-Type", "Application/Json");
+            string json = JsonSerializer.Serialize(datos.json);
+            request.AddJsonBody(json);
+            Console.WriteLine(json);
+            IRestResponse response = cliente.Execute(request);
+            return response.Content;
         }
     }
+
+    class Curl
+    {
+        public string url { set; get; }
+        public Method verbo { set; get; }
+        public object json { set; get; }
+
+        public Curl()
+        {
+            this.url = "http://192.168.0.7:8084/esp32-api/public/api/trabajador";
+        }
+    }
+
+    class Trabajador
+    {
+        public string Nombre { set; get; }
+        public string Apellido { set; get; }
+        public string Puesto { set; get; }
+
+    }
+
 }
