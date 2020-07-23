@@ -101,7 +101,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\ConennectionMysql.cs" />
     <Compile Include="Empleados.cs">
       <SubType>Form</SubType>
     </Compile>
