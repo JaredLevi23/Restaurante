@@ -16,7 +16,12 @@ namespace Restaurante.JSON
 
 
     }
+    /*
+    PAQUETES NUGGET.
+    - RestSharp
+    - System.Text.Json
 
+    */
     class Api
     {
         public string apicall(Curl datos)
