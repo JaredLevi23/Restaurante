@@ -259,7 +259,7 @@
             this.ClientSize = new System.Drawing.Size(826, 487);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MenuCliente";
             this.Text = "MenuCliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

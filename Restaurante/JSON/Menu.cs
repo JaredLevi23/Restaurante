@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Restaurante.JSON
 {
-    class Menu
+    class Menus
     {
 
         string url = "http://192.168.0.7:8084/esp32-api/public/api/menu";
 
-        public string PostProducto(string nom, string descripcion, string precios)
+        public string PostProducto(string nom, string descripcion, string precios,string img)
         {
             string resultado = "";
             int precio = Int32.Parse(precios);
@@ -23,7 +23,7 @@ namespace Restaurante.JSON
 
             using (var oSW = new StreamWriter(request.GetRequestStream()))
             {
-                string json = "{\"Nombre\":\"" + nom + "\",\"Descripcion\":\"" + descripcion + "\",\"Precio\":\"" + precio + "\"}";
+                string json = "{\"Nombre\":\"" + nom + "\",\"Descripcion\":\"" + descripcion + "\",\"Precio\":\"" + precio + "\",\"Imagen\":\""+img+"}";
                 oSW.Write(json);
                 oSW.Flush();
                 oSW.Close();

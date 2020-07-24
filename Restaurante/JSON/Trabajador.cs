@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using RestSharp;
 
+
 namespace Restaurante.JSON
 {
     class Trabajadores
@@ -36,6 +37,19 @@ namespace Restaurante.JSON
             IRestResponse response = cliente.Execute(request);
             return response.Content;
         }
+
+        public string apiDes(Curl datos) {
+
+            var client = new RestClient(datos.url);
+            var request = new RestRequest(datos.verbo);
+            request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
+            
+            var queryResult = client.Execute(request);
+            Object objeto = JsonSerializer.Deserialize<Object>(queryResult.Content);
+            //Console.WriteLine(objeto.result[0].Nombre);
+            return queryResult.Content;
+        }
+
     }
 
     class Curl
@@ -44,9 +58,14 @@ namespace Restaurante.JSON
         public Method verbo { set; get; }
         public object json { set; get; }
 
-        public Curl()
+        public Curl(string origen)
         {
-            this.url = "http://192.168.0.7:8084/esp32-api/public/api/trabajador";
+
+            if(origen == "trabajador")
+                this.url = "http://192.168.0.7:8084/esp32-api/public/api/trabajador";
+            if(origen == "menu")
+                this.url = "http://192.168.0.7:8084/esp32-api/public/api/menu";
+
         }
     }
 
@@ -57,5 +76,20 @@ namespace Restaurante.JSON
         public string Puesto { set; get; }
 
     }
+
+    class Producto {
+
+        public int idProducto { set; get; }
+        public string Nombre { set; get; }
+        public string Descripcion { set; get; }
+        public int Precio { set; get; }
+        public string Imagen { set; get; }
+    }
+
+    class Menu {
+        public Producto [] result {set;get;}
+    }
+
+
 
 }

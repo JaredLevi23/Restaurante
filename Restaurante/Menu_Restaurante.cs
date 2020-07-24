@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,28 +39,48 @@ namespace Restaurante
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Archivo de Imagen |*.jpg| Archivo PNG|*.png|Todos los archivos|*.*";
-            DialogResult result = openFileDialog1.ShowDialog();
-
-            if (result == DialogResult.OK) {
-                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-                
+            OpenFileDialog buscar = new OpenFileDialog();
+            if(buscar.ShowDialog() == DialogResult.OK)
+            {
+                textBox4.Text = buscar.FileName;
             }
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            string nombre, descrip, precio, img;
-            //MemoryStream ms = new MemoryStream();
-            //pictureBox1.Image.Save(ms, ImageFormat.Jpeg);
-
-            //byte[] vs = ms.ToArray();
+            string nombre, descrip, prec, img;
+            
             nombre = textBox1.Text;
             descrip = textBox2.Text;
-            precio = textBox3.Text;
+            prec = textBox3.Text;
+            int precio = Int32.Parse(prec);
+            img = textBox4.Text;
 
-            JSON.Menu menu = new JSON.Menu();
-            menu.PostProducto(nombre,descrip,precio);
+            JSON.Producto articulo = new JSON.Producto();
+            JSON.Api api = new JSON.Api();
+            JSON.Curl curl = new JSON.Curl("menu");
+
+            articulo.Nombre = nombre;
+            articulo.Descripcion = descrip;
+            articulo.Precio = precio;
+            articulo.Imagen = img;
+
+            curl.verbo = Method.POST;
+            curl.json = articulo;
+
+            MessageBox.Show(api.apicall(curl));
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            JSON.Api api = new JSON.Api();
+            JSON.Curl curl = new JSON.Curl("menu");
+            curl.verbo = Method.GET;
+            string fileJson = api.apiDes(curl);
+            
+            dataGridView1.DataSource = fileJson;
+            dataGridView1.Refresh();
         }
     }
 }

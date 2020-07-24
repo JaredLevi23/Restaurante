@@ -54,7 +54,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(462, 81);
+            this.panel1.Size = new System.Drawing.Size(453, 81);
             this.panel1.TabIndex = 0;
             // 
             // iconPictureBox1
@@ -63,8 +63,8 @@
             this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
-            this.iconPictureBox1.IconSize = 70;
-            this.iconPictureBox1.Location = new System.Drawing.Point(385, 12);
+            this.iconPictureBox1.IconSize = 63;
+            this.iconPictureBox1.Location = new System.Drawing.Point(376, 12);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(65, 63);
             this.iconPictureBox1.TabIndex = 1;
@@ -86,9 +86,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.iconButton1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 237);
+            this.panel2.Location = new System.Drawing.Point(0, 236);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(462, 99);
+            this.panel2.Size = new System.Drawing.Size(453, 99);
             this.panel2.TabIndex = 1;
             // 
             // iconButton1
@@ -125,7 +125,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 81);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(462, 156);
+            this.panel3.Size = new System.Drawing.Size(453, 155);
             this.panel3.TabIndex = 2;
             // 
             // comboBox1
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 336);
+            this.ClientSize = new System.Drawing.Size(453, 335);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
