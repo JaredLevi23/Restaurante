@@ -27,5 +27,10 @@ namespace Restaurante
             Nuevo_Socio nueva = new Nuevo_Socio();
             nueva.Show();
         }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

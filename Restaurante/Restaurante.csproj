@@ -104,6 +104,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contenedor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contenedor.Designer.cs">
+      <DependentUpon>Contenedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contenedor_Empleado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contenedor_Empleado.Designer.cs">
+      <DependentUpon>Contenedor_Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contenedor_Orden.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contenedor_Orden.Designer.cs">
+      <DependentUpon>Contenedor_Orden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Empleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,7 +134,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="JSON\Menu.cs" />
+    <Compile Include="JSON\Producto.cs" />
     <Compile Include="JSON\Trabajador.cs" />
     <Compile Include="MenuCliente.cs">
       <SubType>Form</SubType>
@@ -150,6 +168,15 @@
     <Compile Include="Reservaciones.Designer.cs">
       <DependentUpon>Reservaciones.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Contenedor.resx">
+      <DependentUpon>Contenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contenedor_Empleado.resx">
+      <DependentUpon>Contenedor_Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contenedor_Orden.resx">
+      <DependentUpon>Contenedor_Orden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>

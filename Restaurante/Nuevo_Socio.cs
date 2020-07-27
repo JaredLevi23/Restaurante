@@ -29,7 +29,7 @@ namespace Restaurante
 
                 JSON.Trabajador trabajador = new JSON.Trabajador();
                 JSON.Api api = new JSON.Api();
-                JSON.Curl curl = new JSON.Curl("trabajador");
+                JSON.Curl curl = new JSON.Curl();
 
                 trabajador.Nombre = nombre;
                 trabajador.Apellido = apellido;
