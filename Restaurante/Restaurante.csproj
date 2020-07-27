@@ -134,6 +134,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JSON\Pedidos.cs" />
     <Compile Include="JSON\Producto.cs" />
     <Compile Include="JSON\Trabajador.cs" />
     <Compile Include="MenuCliente.cs">
@@ -233,6 +234,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

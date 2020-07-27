@@ -42,6 +42,10 @@ namespace Restaurante.JSON
         }
     }
 
+
+
+
+
     class Trabajador
     {
         public int idTrabajador { set; get; }
